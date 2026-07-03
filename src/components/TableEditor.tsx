@@ -22,6 +22,7 @@ function propertyNameToLabel(name: keyof TableEditable): string {
         case "flatOutsideBuffer": return "Flat rail outside buffer"
         case "railInsideBuffer": return "Tube rail inside buffer"
         case "railOutsideBuffer": return "Tube rail outside buffer"
+        case "bitDiameter": return "CNC bit diameter"
     }
 }
 
@@ -91,6 +92,12 @@ export default function TableEditor(props: TableEditorProps) {
             <TablePropEditor
                 itemName={propertyNameToLabel("material")}
                 propName="material"
+                table={props.table}
+                updateTable={props.updateTable}
+            />
+            <TablePropEditor
+                itemName={propertyNameToLabel("bitDiameter")}
+                propName="bitDiameter"
                 table={props.table}
                 updateTable={props.updateTable}
             />

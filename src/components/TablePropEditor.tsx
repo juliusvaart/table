@@ -28,6 +28,7 @@ export default function TablePropEditor(props: TablePropEditorProps) {
             props.table.flatInsideBuffer,
             props.table.railOutsideBuffer,
             props.table.railInsideBuffer,
+            props.table.bitDiameter,
             props.table.units,
             props.table.configuration,
         );

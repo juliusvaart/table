@@ -16,6 +16,7 @@ export interface TableEditable {
     flatInsideBuffer: number;
     railOutsideBuffer: number;
     railInsideBuffer: number;
+    bitDiameter: number;
 }
 
 export class Table implements TableEditable {
@@ -33,6 +34,7 @@ export class Table implements TableEditable {
     flatInsideBuffer: number;
     railOutsideBuffer: number;
     railInsideBuffer: number;
+    bitDiameter: number;
     units: Units;
     configuration: Configuration;
 
@@ -51,7 +53,8 @@ export class Table implements TableEditable {
         flatInsideBuffer: number,
         railOutsideBuffer: number,
         railInsideBuffer: number,
-        units: Units, 
+        bitDiameter: number,
+        units: Units,
         configuration: Configuration
     ) {
         this.xCut = xCut;
@@ -68,6 +71,7 @@ export class Table implements TableEditable {
         this.flatInsideBuffer = flatInsideBuffer;
         this.railOutsideBuffer = railOutsideBuffer;
         this.railInsideBuffer = railInsideBuffer;
+        this.bitDiameter = bitDiameter;
         this.units = units;
         this.configuration = configuration;
     }
@@ -220,6 +224,10 @@ export class Table implements TableEditable {
         }[this.units];
     }
 
+    get dogBoneRadius(): number {
+        return this.bitDiameter / 2;
+    }
+
     get inMillimeters(): Table {
         const convert = {
             "mm": (x: number) => x,
@@ -242,6 +250,7 @@ export class Table implements TableEditable {
             convert(this.flatInsideBuffer),
             convert(this.railOutsideBuffer),
             convert(this.railInsideBuffer),
+            convert(this.bitDiameter),
             "mm",
             this.configuration,
         )
@@ -269,6 +278,7 @@ export class Table implements TableEditable {
             convert(this.flatInsideBuffer),
             convert(this.railOutsideBuffer),
             convert(this.railInsideBuffer),
+            convert(this.bitDiameter),
             "cm",
             this.configuration,
         )
@@ -296,6 +306,7 @@ export class Table implements TableEditable {
             convert(this.flatInsideBuffer),
             convert(this.railOutsideBuffer),
             convert(this.railInsideBuffer),
+            convert(this.bitDiameter),
             "in",
             this.configuration,
         )
