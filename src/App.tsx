@@ -34,7 +34,7 @@ function App() {
       <div className="inline-flex flex-col h-screen max-h-screen">
         <div className="inline-block">
           <TableEditor table={table} updateTable={setTable} />
-          <SVGDownloadButton className="real-size-layout" />
+          <SVGDownloadButton className="real-size-layout" units={table.units} />
         </div>
 	  	<p>Calibration square is {table.calibrationSquareSize} {table.units}</p>
       <hr className="p-3 w-screen"/>
